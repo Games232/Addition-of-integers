@@ -1,0 +1,531 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('Blabeloo-font-v.1.0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: '11';
+    src: url('Blabeloo-font-v.1.0.ttf') format('truetype');
+}
+
+
+body {
+    user-select: none;
+    font-family: 'MyCustomFont', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#start-screen {
+    background-image: url('1 1.png');
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#game-screen {
+    background-image: url('2.png');
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#end-screen {
+    background-image: url('4.png');
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#lose-screen {
+    background-image: url('3.png');
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #ff6f61;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#title1 {
+    font-family: '11', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    stroke: #000;
+    color: #f50606;
+    text-shadow: 4px 4px 6px rgb(0, 0, 0);
+}
+
+button {
+    margin-top: 10px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: 'MyCustomFont', sans-serif;
+    cursor: pointer;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 6px 8px rgb(0, 0, 0);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff9900;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#start-button {
+    padding: 20px 35px;
+    font-size: 3rem;
+    font-family: 'MyCustomFont', sans-serif;
+    cursor: pointer;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 6px 8px rgb(0, 0, 0);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #ff9900;
+    transform: scale(1.1);
+}
+
+#start-button:active {
+    transform: scale(0.95);
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: grab;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    border: 3px solid white;
+}
+
+.positive {
+    background-color: #4caf50;
+    color: white;
+}
+
+.negative {
+    background-color: #f44336;
+    color: white;
+}
+
+.drop-zone {
+    width: 140px;
+    min-height: 250px;
+    padding: 20px;
+    background-color: #ffffff99;
+    border: 4px dashed #555;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate__bounce {
+    animation: bounce 1s infinite;
+}
+
+#message {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #333;
+}
+
+#score-time {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#end-screen {
+    margin-top: 20%;
+    text-align: center;
+}
+
+#end-screen h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+#end-screen p {
+    font-size: 24px;
+    color: #555;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#lose-screen {
+    margin-top: 20%;
+    text-align: center;
+}
+
+#lose-screen h1 {
+    font-size: 36px;
+    color: #ff0000;
+}
+
+#lose-screen p {
+    font-size: 24px;
+    color: #555;
+}
+
+#try-again-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* لجعل الفتافيت غير قابلة للنقر */
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 15px; /* تغيير الحجم */
+    height: 15px; /* تغيير الحجم */
+    opacity: 0.8;
+    animation: fall 1s forwards; /* تشغيل الحركة */
+}
+
+/* Animation for falling confetti */
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg); /* سقوط ولتدوير الفتافيت */
+    }
+}
+
+/* Hide the confetti initially */
+.hidden {
+    display: none;
+}
+
+#circles-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#drop-zones {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('4.png');
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.662);
+    position: relative;
+    animation: bounceIn 0.5s;
+}
+
+.popup2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('3.png');
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lose-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('3.png'); /* استبدل بالصورة التي تريدها */
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+#timeout-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('4.png'); /* استبدل بالصورة التي تريدها */
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    
+    color: #33333300;
+}
+
+.close-popup:hover {
+    color: #00000000;
+}
+
+.popup h1 {
+    font-size: 2rem;
+    color: #ff6f61;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.popup button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+    background-color: #ff9900;
+}
+
+
+/* تحسين شكل التايمر */
+#timer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 204, 0, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+/* إضافة تأثير الـ Shake */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+#score-container {
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    background-color: rgba(255, 204, 0, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #score-container, #timer {
+        font-size: 20px;
+        padding: 8px 15px;
+    }
+
+    #how-to-play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 0; /* إخفاء النص */
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* منع ظهور النص خارج الزر */
+        white-space: nowrap; /* منع النص من النزول للسطر التالي */
+    }
+
+    #how-to-play-button span {
+        display: none; /* إخفاء النص داخل الزر */
+    }
+
+    #how-to-play-button img {
+        width: 40px;
+        height: 40px;
+    }
+
+    
+
+
+}
+
+#problem {
+    font-size: 40px;
+}
+
+#how-to-play-button {
+    padding: 10px 20px;
+    font-size: 2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#how-to-play-button:hover {
+    background-color: #45a049;
+}
+
+#how-to-play-button img {
+    width: 60px;
+    height: 60px;
+}

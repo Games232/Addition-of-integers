@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة جمع الأعداد الصحيحة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="start-screen">
+        <h1 class="animate__animated animate__bounce" id="title1">لعبة جمع الأعداد <br>الصحيحة</h1>
+        <button id="start-button">ابدأ اللعب</button>
+    </div>
+
+    <div id="game-screen" style="display: none;">
+        <div id="score-time">
+            <p id="score-container">النقاط: <span id="score">0</span></p>
+            <p><span id="timer">00:60</span></p>
+        </div>
+        <h2 id="problem"></h2>
+        <div id="circles-container">
+            <!-- الدوائر ستضاف هنا بالجافاسكريبت -->
+        </div>
+        <div id="message"></div>
+        <div id="drop-zones">
+            <div id="drop-zone-1" class="drop-zone">العدد الأول</div>
+            <div id="drop-zone-2" class="drop-zone">العدد الثاني</div>
+        </div>
+        
+        
+        <button id="show-result" style="display: none;">عرض النتيجة</button>
+        <button id="new-problem">مسألة جديدة</button>
+        <button id="how-to-play-button" style="position: absolute; bottom: 20px; right: 20px;">
+            <img src="sound.png" alt="Play Sound" style="width: 24px; height: 24px;">
+            <span>استمع لطريقة اللعب</span>
+        </button>
+    </div>
+
+    <!-- Pop-up للخسارة -->
+    <div id="lose-popup" class="popup2">
+        <div class="popup-content animate__animated animate__bounce">
+            <span id="close-timeout-popup" class="close-popup">&times;</span>
+            <h1>لقد خسرت</h1>
+            <p>لقد حصلت على <span id="final-score-popup">0</span> نقطة.</p>
+            <button id="restart-popup-lose">إعادة اللعب</button>
+        </div>
+    </div>
+
+    <!-- Pop-up لانتهاء الوقت -->
+    <div id="timeout-popup" class="popup2">
+        <div class="popup-content animate__animated animate__bounce">
+            <span id="close-timeout-popup" class="close-popup">&times;</span>
+            <h1>انتهى الوقت!</h1>
+            <p>لقد حصلت على <span id="final-score-popup">0</span> نقطة.</p>
+            <button id="restart-popup-timeout">إعادة اللعب</button>
+        </div>
+    </div>
+
+    <div id="confetti" class="hidden"></div>
+
+    <!-- إضافة صوت الخسارة -->
+    <audio id="lose-sound" src="lose.mp3"></audio>
+    <audio id="lose-sound2" src="error.mp3"></audio>
+    <audio id="timer-sound" src="timer.mp3"></audio>
+    <audio id="win-sound" src="win.mp3"></audio>
+    <audio id="win-sound2" src="win2.mp3"></audio>
+    <audio id="pop-sound" src="pop.mp3"></audio>
+    <audio id="timeout-sound" src="timeout.mp3"></audio>
+    <audio id="how-to-play-sound" src="how-to-play.mp3"></audio>
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
